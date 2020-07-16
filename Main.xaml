@@ -103,11 +103,7 @@
     </Sequence>
     <Sequence DisplayName="Search in Ebay" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="CurrentPath">
-          <Variable.Default>
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Directory.GetCurrentDirectory()" />
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="x:String" Default="[Directory.GetCurrentDirectory()]" Name="CurrentPath" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -279,7 +275,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:CloseApplication>
     </Sequence>
-    <Sequence DisplayName="Send Emails Through Outlook" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Send Emails Through Outlook" sap:VirtualizedContainerService.HintSize="375.2,368.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd1:DataTable" Name="UsersDataTable" />
       </Sequence.Variables>
@@ -294,7 +290,7 @@
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
       </ui:ExecuteQuery>
-      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Hey Federico,&#xA;&#xA;I'm UiPath, and I'm attaching you the cotization of the latest Medical Masks from Ebay.&#xA;&#xA;Best regards,&#xA;Your Bot" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[&quot;Medical Masks Cotization on &quot; + DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)]" To="[UsersDataTable.Rows(0)(&quot;Email&quot;).ToString()]">
+      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Hey Federico,&#xD;&#xA;&#xD;&#xA;I'm UiPath, and I'm attaching you the quotation of the latest Medical Masks from Ebay.&#xD;&#xA;&#xD;&#xA;Best regards,&#xD;&#xA;Your Bot" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[&quot;Medical Masks Quotation on &quot; + DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)]" To="[UsersDataTable.Rows(0)(&quot;Email&quot;).ToString()]">
         <ui:SendOutlookMail.Files>
           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
             <InArgument x:TypeArguments="x:String">MedicalMasks.xlsx</InArgument>
